@@ -2,7 +2,7 @@
 
 header("Content-Type: application/json"); // Responde en JSON
 
-$enviaPara = 'donato.pablo2002@gmail.com'; 
+$enviaPara = 'interservseguridadconsultas@gmail.com'; 
 $subject = 'Contacto desde la web'; 
 
 $mensaje = '';
