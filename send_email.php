@@ -20,6 +20,10 @@ foreach($_POST as $indice => $valor){
     } else {
         if($primero){
             $from = filter_var($valor, FILTER_SANITIZE_EMAIL); // Filtra email
+            if (!filter_var($from, FILTER_VALIDATE_EMAIL)) {
+                echo json_encode(["success" => false, "error" => "Invalid email address"]);
+                exit;
+            }
             $primero = false;
         }
         $mensaje .= '<strong>'.$indice.': </strong>';
