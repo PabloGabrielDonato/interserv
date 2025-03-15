@@ -43,6 +43,6 @@ $mail_headers .= "From: " . $from . "\r\n";
 if (@mail($enviaPara, $subject, $mensaje, $mail_headers)) {
     echo json_encode(["success" => true]); // Responde éxito
 } else {
-    echo json_encode(["success" => false]); // Responde error
+    echo json_encode(["success" => false, "error" => "Failed to send email"]); // Responde error
 }
 ?>
