@@ -8,7 +8,7 @@ $subject = 'Contacto desde la web';
 
 $mensaje = '';
 $primero = true;
-$from = 'no-reply@tuweb.com'; // Email por defecto
+$from = 'no-reply@interservseguridad.com.ar'; // Email por defecto
 
 if (empty($_POST)) {
     echo json_encode(["success" => false, "error" => "No data received"]);
