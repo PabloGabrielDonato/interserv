@@ -1,9 +1,7 @@
 <?php
-
 header("Content-Type: application/json"); // Responde en JSON
 
-//interservseguridadconsultas@gmail.com
-$enviaPara = 'iphone.pablo2002@gmail.com'; // Email de destino
+$enviaPara = 'interservseguridadconsultas@gmail.com'; // Email de destino
 $subject = 'Contacto desde la web'; 
 
 $mensaje = '';
@@ -47,5 +45,4 @@ if (@mail($enviaPara, $subject, $mensaje, $mail_headers)) {
 } else {
     echo json_encode(["success" => false]); // Responde error
 }
-
 ?>
