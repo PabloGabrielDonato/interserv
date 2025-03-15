@@ -1,48 +1,46 @@
 <?php
-header("Content-Type: application/json"); // Responde en JSON
+header('Content-Type: application/json');
 
-$enviaPara = 'interservseguridadconsultas@gmail.com'; // Email de destino
-$subject = 'Contacto desde la web'; 
+// Configuración del destinatario
+$destinatario = 'donato.pablo2002@gmail.com';
+$asunto = 'Nuevo mensaje de contacto';
 
-$mensaje = '';
-$primero = true;
-$from = 'no-reply@interservseguridad.com.ar'; // Email por defecto
-
-if (empty($_POST)) {
-    echo json_encode(["success" => false, "error" => "No data received"]);
+// Validar si se recibieron los datos esperados
+if (!isset($_POST['name'], $_POST['email'], $_POST['phone'], $_POST['message'])) {
+    echo json_encode(['success' => false, 'error' => 'Faltan datos en el formulario']);
     exit;
 }
 
-foreach($_POST as $indice => $valor){
-    if(is_array($valor)){
-        $mensaje .= '<strong>'.$indice.': </strong><ul>';
-        foreach($valor as $item){
-            $mensaje .= '<li>'.$item .'</li>';
-        }				
-        $mensaje .= '</ul><br>'; 
-    } else {
-        if($primero){
-            $from = filter_var($valor, FILTER_SANITIZE_EMAIL); // Filtra email
-            if (!filter_var($from, FILTER_VALIDATE_EMAIL)) {
-                echo json_encode(["success" => false, "error" => "Invalid email address"]);
-                exit;
-            }
-            $primero = false;
-        }
-        $mensaje .= '<strong>'.$indice.': </strong>';
-        $mensaje .= htmlspecialchars($valor) . '<br>'; // Evita inyección de código
-    }
+// Sanitización de datos
+$nombre = filter_var(trim($_POST['name']), FILTER_SANITIZE_STRING);
+$email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+$telefono = filter_var(trim($_POST['phone']), FILTER_SANITIZE_STRING);
+$mensaje = filter_var(trim($_POST['message']), FILTER_SANITIZE_STRING);
+
+// Verificar que los datos sean válidos
+if (!$nombre || !$email || !$telefono || !$mensaje) {
+    echo json_encode(['success' => false, 'error' => 'Datos inválidos']);
+    exit;
 }
 
-// Encabezados para el correo
-$mail_headers  = "MIME-Version: 1.0\r\n";
-$mail_headers .= "Content-type: text/html; charset=UTF-8\r\n";
-$mail_headers .= "From: " . $from . "\r\n";
+// Construcción del mensaje
+$contenido = "<html><body>";
+$contenido .= "<h2>Nuevo mensaje de contacto</h2>";
+$contenido .= "<p><strong>Nombre:</strong> $nombre</p>";
+$contenido .= "<p><strong>Email:</strong> $email</p>";
+$contenido .= "<p><strong>Teléfono:</strong> $telefono</p>";
+$contenido .= "<p><strong>Mensaje:</strong><br>$mensaje</p>";
+$contenido .= "</body></html>";
+
+// Encabezados del correo
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/html; charset=UTF-8\r\n";
+$headers .= "From: $email\r\n";
+$headers .= "Reply-To: $email\r\n";
 
 // Enviar correo
-if (@mail($enviaPara, $subject, $mensaje, $mail_headers)) {
-    echo json_encode(["success" => true]); // Responde éxito
+if (mail($destinatario, $asunto, $contenido, $headers)) {
+    echo json_encode(['success' => true]);
 } else {
-    echo json_encode(["success" => false, "error" => "Failed to send email"]); // Responde error
+    echo json_encode(['success' => false, 'error' => 'Error al enviar el correo']);
 }
-?>
