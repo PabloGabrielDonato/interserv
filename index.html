@@ -27,6 +27,11 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap"
       rel="stylesheet"
     />
+    <!-- Agregar FontAwesome si no está incluido -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet" />
@@ -64,10 +69,10 @@
     <!-- Botón flotante de WhatsApp -->
     <a
       href="https://wa.me/1130755024?text=Hola,%20estoy%20interesado%20en%20hablar%20con%20un%20experto..."
-      class="whatsapp-button"
       target="_blank"
+      class="whatsapp-button"
     >
-      &#128172;
+      <i class="fa-brands fa-whatsapp"></i>
     </a>
     <div class="hero_area">
       <!-- header section strats -->
@@ -97,10 +102,10 @@
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span> Celular : +54 11 3075-5024 </span>
               </a>
-              <a href="" class="contact_link3">
+                <a href="mailto:interserv@telecentro.com" class="contact_link3">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> demo@gmail.com </span>
-              </a>
+                <span> interserv@telecentro.com </span>
+                </a>
             </div>
           </div>
         </div>
@@ -133,16 +138,16 @@
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="about.html"> Nosotros</a>
+                    <a class="nav-link" href="#about"> Nosotros</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="service.html"> Servicios </a>
+                    <a class="nav-link" href="#services"> Servicios </a>
                   </li>
                   <!-- <li class="nav-item">
                   <a class="nav-link" href="guard.html"> Guards </a>
                 </li> -->
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html"> Contactanos</a>
+                    <a class="nav-link" href="#contact"> Contactanos</a>
                   </li>
                 </ul>
               </div>
@@ -173,8 +178,9 @@
                         altamente capacitado.
                       </p>
                       <div class="btn-box">
-                        <a href="" class="btn-1"> Nuestra experiencia </a>
-                        <a href="" class="btn-2">Habla con un experto</a>
+                        <a href="#clients" class="btn-1"> Nuestra experiencia </a>
+                        <a href="https://wa.me/1130755024?text=Hola,%20estoy%20interesado%20en%20hablar%20con%20un%20experto...""
+                        target="_blank" class="btn-2">Habla con un experto</a>
                       </div>
                     </div>
                   </div>
@@ -244,7 +250,7 @@
 
     <!-- about section -->
 
-    <section class="about_section layout_padding">
+    <section class="about_section layout_padding" id="about">
       <div class="container">
         <div class="row">
           <div class="col-md-6 px-0">
@@ -260,15 +266,9 @@
                 <h2>¿Quienes Somos?</h2>
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit
+                Somos una empresa de vigilancia que atiende servicios en los consorcios propiedad horizontal. El servicio que brindamos, se sustenta en principios fundamentales como lo son la vida y el patrimonio de terceros, cuya protección les es encomendada. La contratación de un servicio de seguridad, significa un voto de confianza en quien tiene la tarea de proteger tan preciados valores.
+
               </p>
-              <div class="btn-box">
-                <a href=""> Read More </a>
-              </div>
             </div>
           </div>
         </div>
@@ -279,13 +279,13 @@
 
     <!-- service section -->
 
-    <section class="service_section layout_padding">
+    <section class="service_section layout_padding" id="services">
       <div class="container">
         <div class="heading_container heading_center">
           <h2>Nuestros servicios.</h2>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <div class="box">
               <div class="img-box">
                 <svg
@@ -322,11 +322,11 @@
                   quia eum in doloribus debitis impedit ut minus tenetur
                   corrupti excepturi ullam.
                 </p>
-                <a href=""> Read More </a>
+                <a href=""> Leer más </a>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
+          </div> -->
+          <div class="col-md-6">
             <div class="box">
               <div class="img-box">
                 <svg
@@ -400,17 +400,23 @@
                 </svg>
               </div>
               <div class="detail-box">
-                <h6>Seguridad en edificios</h6>
+                <h6>Vigilador virtual (Tótems)</h6>
                 <p>
-                  Minima consequatur architecto eaque assumenda ipsam itaque
-                  quia eum in doloribus debitis impedit ut minus tenetur
-                  corrupti excepturi ullam.
+                  Es el servicio de seguridad electrónica ideal que brinda
+                  protección y control en el Hall de recepción y espacios
+                  comunes de Consorcios de Propietarios, Oficinas, Empresas e
+                  Instituciones de Salud. La Video Vigilancia Remota brindada
+                  desde nuestra Estación de Monitoreo, permite que nuestros
+                  Vigiladores Virtuales estén presentes en la ubicación
+                  protegida las 24 hs. los 365 días del año.
                 </p>
-                <a href=""> Read More </a>
+                <a href="https://wa.me/1130755024?text=Hola,%20estoy%20interesado%20en%20hablar%20con%20un%20experto..."
+                target="_blank"> Pedir más información </a>
+
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="box">
               <div class="img-box">
                 <svg
@@ -472,11 +478,17 @@
               <div class="detail-box">
                 <h6>Seguridad física</h6>
                 <p>
-                  Minima consequatur architecto eaque assumenda ipsam itaque
-                  quia eum in doloribus debitis impedit ut minus tenetur
-                  corrupti excepturi ullam.
+                  Es el servicio ideal para garantizar la protección de personas
+                  y bienes mediante la presencia de personal capacitado en
+                  control de accesos, prevención de incidentes y respuesta
+                  inmediata. Nuestros vigiladores, estratégicamente ubicados,
+                  supervisan en tiempo real cada sector, asegurando un entorno
+                  seguro en Consorcios, Empresas e Instituciones.
                 </p>
-                <a href=""> Read More </a>
+                <br>
+                
+                <a href="https://wa.me/1130755024?text=Hola,%20estoy%20interesado%20en%20hablar%20con%20un%20experto..."
+                target="_blank"> Pedir más información </a>
               </div>
             </div>
           </div>
@@ -488,7 +500,7 @@
 
     <!-- client section -->
 
-    <section class="client_section layout_padding">
+    <section class="client_section layout_padding" id="clients">
       <div class="container">
         <div class="heading_container heading_center">
           <h2>Confiaron en nosotros</h2>
@@ -808,8 +820,8 @@
     <!-- footer section -->
     <footer class="container-fluid footer_section">
       <p>
-        &copy; <span id="currentYear"></span> Todos los derechos reservados, Pablo Gabriel Donato
-
+        &copy; <span id="currentYear"></span> Todos los derechos reservados,
+        Pablo Gabriel Donato
       </p>
     </footer>
     <!-- footer section -->
