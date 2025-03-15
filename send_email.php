@@ -10,6 +10,11 @@ $mensaje = '';
 $primero = true;
 $from = 'no-reply@tuweb.com'; // Email por defecto
 
+if (empty($_POST)) {
+    echo json_encode(["success" => false, "error" => "No data received"]);
+    exit;
+}
+
 foreach($_POST as $indice => $valor){
     if(is_array($valor)){
         $mensaje .= '<strong>'.$indice.': </strong><ul>';
