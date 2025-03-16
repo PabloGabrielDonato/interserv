@@ -648,49 +648,6 @@
                 </div>
               </form>
 
-              <!-- Script para manejar el envío del formulario con AJAX -->
-              <script>
-                document
-                  .getElementById("contactForm")
-                  .addEventListener("submit", function (event) {
-                    event.preventDefault(); // Evita la recarga de la página
-
-                    let formData = new FormData(this); // Captura automáticamente todos los valores del formulario
-
-                    fetch("send_email.php", {
-                      method: "POST",
-                      body: formData,
-                    })
-                      .then((response) => response.json()) // Recibe la respuesta en JSON
-                      .then((data) => {
-                        if (data.success) {
-                          Swal.fire({
-                            title: "¡Enviado!",
-                            text: "Tu mensaje fue enviado correctamente.",
-                            icon: "success",
-                            confirmButtonText: "OK",
-                          });
-                          document.getElementById("contactForm").reset(); // Limpia el formulario
-                        } else {
-                          Swal.fire({
-                            title: "Error",
-                            text: "Hubo un problema al enviar el mensaje.",
-                            icon: "error",
-                            confirmButtonText: "OK",
-                          });
-                        }
-                      })
-                      .catch((error) => {
-                        console.error("Error:", error);
-                        Swal.fire({
-                          title: "Error",
-                          text: "No se pudo enviar el mensaje.",
-                          icon: "error",
-                          confirmButtonText: "OK",
-                        });
-                      });
-                  });
-              </script>
             </div>
           </div>
         </div>
