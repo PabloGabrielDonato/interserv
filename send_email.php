@@ -1,6 +1,7 @@
 <?php
 $to = "iphone.pablo2002@gmail.com";
 
+
 $subject = "Consulta en página interserv";
 $name = $_POST['name'];
 $email = $_POST['email'];
